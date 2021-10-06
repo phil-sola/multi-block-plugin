@@ -21,7 +21,13 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
 function create_block_multi_block_plugin_block_init() {
-	register_block_type( plugin_dir_path( __FILE__ ) . '/src/block-library/block-one/' );
-	register_block_type( plugin_dir_path( __FILE__ ) . '/src/block-library/block-two/' );
+	$blocks = array(
+			'block-one/',
+			'block-two/'
+	);
+
+	foreach($blocks as $block) {
+		register_block_type( plugin_dir_path( __FILE__ ) . '/src/block-library/' . $block );
+	}
 }
 add_action( 'init', 'create_block_multi_block_plugin_block_init' );

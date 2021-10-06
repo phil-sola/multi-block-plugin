@@ -10,7 +10,7 @@
 		"html": false
 	},
 	"textdomain": "block-one",
-	"editorScript": "file:../../../build/index.js",
-	"editorStyle": "file:../../../build/index.css",
-	"style": "file:../../../build/style-index.css"
+	"editorScript": "file:../../../build/block-one.js",
+	"editorStyle": "file:../../../build/block-one.css",
+	"style": "file:../../../build/style-block-one.css"
 }

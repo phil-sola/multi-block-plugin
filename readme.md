@@ -1,17 +1,44 @@
 # Multi blocks plugin
 
-Utilising the excellent `@wordpress/create-block` package, with some slight changes to
-the folder structure and setup to accommodate multiple blocks in the single WordPress
-plugin. This approach does not require *any* changes to the default package.json
-file or build & start scripts.
+Coming up with a clean solution to converting the current @wordpress/create-block
+package installation over to accommodating multiple blocks in a single plugin has
+proven harder than initially thought & I believe the real work needs to come from the
+package itself now. There is simply too much going on behind the scenes in terms of
+config to completely get the ideal solution.
 
-The official documentation for the WordPress package this is based on can be found
-[here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/)
+This latest iteration is the cleanest, simplest solution I have personally been able
+to get working so far. The latest version gives individual outputs for each block
+helping with enqueueing files only when required.
+
+## Ideal Solution (IMO)
+
+What I would have liked to achieve would be a cleaner build file organised by blocks
+for all files.
+
+For example...
+
+ ```bash
+    build
+     - block-one
+      - index.js
+      - index.css
+      - style-index.css
+      - index.asset.php
+     - block-two
+      - etc etc
+```
+
+It's not quite as clean as I would like but I am happy to have multiple entry points
+configured within webpack config rather than creating multiple npm scripts inside the
+package.json file - it certainly works for now.
 
 ## @WordPress/create-block
 I highly recommend utilising the @wordpress/create-block package for developing custom
 blocks as it takes care of everything you need such as webpack, babel, and comes with
 the excellent @WordPress/scripts package as well.
+
+The official documentation for the WordPress package this is based on can be found
+[here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/)
 
 Let's get you set up...
 
@@ -27,29 +54,12 @@ Let's get you set up...
 4. ```bash
     npm start
     ```
-
-## How it Works
-
-The inspiration here is taken from the core gutenberg plugin. Within the src folder I
-have created a couple of subfolders to get you started:
-
- - block-library
- - components
-
-with a root index.js file.
-
-The root index.js file is simply importing all the individual blocks, adding them to
-an array and them looping through them while calling the registerBlockType() function.
-
-Within the block-library folder is where all the custom blocks will live. I have
-created two identical dummy blocks to kick us off and to help show the setup.
-
-As we are now registering all blocks centrally inside the root index.js file (as
-described above), the index.js file within each block folder is simply setting
-everything up to be imported into the main index.js file.
+5. Create as many custom blocks as you like... don't forget to update the webpack
+   config file and the root php file.
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+If anyone knows of a better way to configure everything within webpack to make this
+even slicker, I would be very happy for pull requests and contributions to this.
 
 ## License
 [GPL2 or Later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)

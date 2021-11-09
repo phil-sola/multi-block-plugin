@@ -1,5 +1,6 @@
 {
 	"name": "multi-block-plugin",
+  	"private": true,
 	"version": "0.1.0",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"author": "The WordPress Contributors",
@@ -19,6 +20,13 @@
 		"@wordpress/i18n": "^4.2.2"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^18.0.1"
+		"@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+		"@wordpress/scripts": "^18.0.1",
+		"clean-webpack-plugin": "^4.0.0",
+		"css-loader": "^6.5.1",
+		"mini-css-extract-plugin": "^2.4.4",
+		"sass-loader": "^12.3.0",
+		"style-loader": "^3.3.1",
+		"webpack-livereload-plugin": "^3.0.2"
 	}
 }

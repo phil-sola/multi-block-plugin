@@ -19,7 +19,12 @@
  * through the block editor in the corresponding context.
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
+ *
  */
+
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+
+
 function create_block_multi_block_plugin_block_init() {
 	$blocks = array(
 			'block-one/',

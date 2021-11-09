@@ -1,4 +1,5 @@
 {
+  	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
 	"name": "create-block/block-one",
 	"version": "0.1.0",
@@ -10,7 +11,7 @@
 		"html": false
 	},
 	"textdomain": "block-one",
-	"editorScript": "file:../../../build/block-one.js",
-	"editorStyle": "file:../../../build/block-one.css",
-	"style": "file:../../../build/style-block-one.css"
+	"editorScript": "file:../../../build/js/block-one/block-one.js",
+	"editorStyle": "file:../../../build/css/block-one.css",
+	"style": "file:../../../build/css/style-block-one.css"
 }

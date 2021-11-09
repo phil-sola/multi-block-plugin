@@ -1,6 +1,6 @@
 {
 	"name": "multi-block-plugin",
-  	"private": true,
+	"private": true,
 	"version": "0.1.0",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"author": "The WordPress Contributors",

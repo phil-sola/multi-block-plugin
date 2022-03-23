@@ -29,16 +29,6 @@ module.exports = {
 		filename: 'js/[name]/[name].js',
 		path: path.resolve(process.cwd(), 'build')
 	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.(sc|sa)ss$/,
-				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-			}
-		],
-	},
 	plugins: [
 		new CleanWebpackPlugin({
 			cleanAfterEveryBuildPatterns: ['!fonts/**', '!images/**'],
